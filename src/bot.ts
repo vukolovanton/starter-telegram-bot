@@ -60,7 +60,7 @@ if (process.env.NODE_ENV === "production") {
   bot.launch({
     webhook: {
       domain: process.env.DOMAIN || "example.com",
-      port: process.env.PORT || 8080,
+      port: process.env.PORT || 3000,
     },
   });
 } else {
