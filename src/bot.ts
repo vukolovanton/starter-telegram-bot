@@ -59,22 +59,10 @@ bot.hears("Активные бойцы", ctx => {
 if (process.env.NODE_ENV === "production") {
   bot.launch({
     webhook: {
-      // Public domain for webhook; e.g.: example.com
-      domain: "example.com",
-
-      // Port to listen on; e.g.: 8080
-      port: 8080,
-
-      // Optional path to listen for.
-      // `bot.secretPathComponent()` will be used by default
-      // hookPath: webhookPath,
-
-      // Optional secret to be sent back in a header for security.
-      // e.g.: `crypto.randomBytes(64).toString("hex")`
-      secretToken: "123dsadjakdas7cxzjckwqey",
+      domain: process.env.DOMAIN || "example.com",
+      port: process.env.PORT || 8080,
     },
   });
 } else {
-  // Use Long Polling for development
   bot.launch();
 }
